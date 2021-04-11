@@ -3,10 +3,6 @@ package ru.vsu.cs;
 public class Date {
     private int date;
 
-    Date(int date) {
-        this.date = date;
-    }
-
     Date(int year, int month, int date) {
         this.date = convertPatternInDate(year, month, date);
     }
@@ -28,13 +24,7 @@ public class Date {
     }
 
     public static int compareDates(Date date1, Date date2) {
-        if (date1.getDate() > date2.getDate()) {
-            return 1;
-        } else if (date1.getDate() < date2.getDate()) {
-            return -1;
-        } else {
-            return 0;
-        }
+        return Integer.compare(date1.getDate(), date2.getDate());
     }
 
     public int convertPatternInDate(int year, int month, int date) {
