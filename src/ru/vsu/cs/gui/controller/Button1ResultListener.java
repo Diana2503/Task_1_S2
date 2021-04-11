@@ -15,7 +15,6 @@ public class Button1ResultListener implements ActionListener {
     JTextField enterTimePeriod;
     DateFormat form1 = new DateFormat("'dd'.'MM'.'yyyy'");
 
-
     public Button1ResultListener(JTextField enterDate, JTextField enterTheActionSign, JTextField enterValue, JTextField convertedDate, JTextField enterTimePeriod) {
         this.enterDate = enterDate;
         this.enterTheActionSign = enterTheActionSign;
@@ -26,19 +25,18 @@ public class Button1ResultListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String date1 = enterDate.getText();
-        Date date = DateFormat.parseADateFromAString(date1);
-        int valueN = Integer.parseInt(enterValue.getText());
-        String dateValue = enterTimePeriod.getText();
-        String sign = enterTheActionSign.getText();
-        if (sign.equals("+")) {
-           date.addingNAmountOfTime(valueN, dateValue);
+        String sourceDate = enterDate.getText();
+        Date date = DateFormat.parseADateFromAString(sourceDate);
+        int numberOfTimePeriod = Integer.parseInt(enterValue.getText());
+        String nameOfTimePeriod = enterTimePeriod.getText();
+        String signOfExecutingCommand = enterTheActionSign.getText();
+        if (signOfExecutingCommand.equals("+")) {
+            date.addingNAmountOfTime(numberOfTimePeriod, nameOfTimePeriod);
         } else {
-            date.subtractNAmountOfTime(valueN, dateValue);
+            date.subtractNAmountOfTime(numberOfTimePeriod, nameOfTimePeriod);
         }
-        String dateNew = form1.formatDateByATemplate(date);
-        convertedDate.setText(dateNew);
+        String newChangedDate = form1.formatDateByATemplate(date);
+        convertedDate.setText(newChangedDate);
     }
-
 }
 

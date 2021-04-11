@@ -21,23 +21,22 @@ public class Button2ResultListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String date1 = enterTheFirstDateForComparison.getText();
-        Date dateFirst = DateFormat.parseADateFromAString(date1);
-        String date2 = enterTheSecondDateForComparison.getText();
-        Date dateSecond = DateFormat.parseADateFromAString(date2);
-        String comparisonOfDate = comparisonDates(form1, dateFirst, dateSecond);
-        comparisonResult.setText(comparisonOfDate);
+        String dateFirst = enterTheFirstDateForComparison.getText();
+        Date dateFirstForComparison = DateFormat.parseADateFromAString(dateFirst);
+        String dateSecond = enterTheSecondDateForComparison.getText();
+        Date dateSecondForComparison = DateFormat.parseADateFromAString(dateSecond);
+        String resultOfComparison = comparisonDates(form1, dateFirstForComparison, dateSecondForComparison);
+        comparisonResult.setText(resultOfComparison);
     }
 
-    public static String comparisonDates(DateFormat form1, Date dateFirst, Date dateSecond) {
-        int comparisonOfDate = Date.compareDates(dateFirst, dateSecond);
+    public static String comparisonDates(DateFormat form1, Date dateFirstForComparison, Date dateSecondForComparison) {
+        int comparisonOfDate = Date.compareDates(dateFirstForComparison, dateSecondForComparison);
         if (comparisonOfDate == 1) {
-            return ("Date" + form1.formatDateByATemplate(dateFirst) + " more then date " + form1.formatDateByATemplate(dateSecond));
+            return ("Date " + form1.formatDateByATemplate(dateFirstForComparison) + " more then date " + form1.formatDateByATemplate(dateSecondForComparison));
         } else if (comparisonOfDate == -1) {
-            return ("Date" + form1.formatDateByATemplate(dateFirst) + " less then date" + form1.formatDateByATemplate(dateSecond));
+            return ("Date " + form1.formatDateByATemplate(dateFirstForComparison) + " less then date " + form1.formatDateByATemplate(dateSecondForComparison));
         } else {
             return ("The numbers are equal");
         }
     }
-
 }

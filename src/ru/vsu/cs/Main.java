@@ -15,25 +15,25 @@ public class Main {
         Date dateSecondForComparison = DateFormat.parseADateFromAString(dateSecond);
         comparisonDates(form1, dateFirstForComparison, dateSecondForComparison);
 
-        String value = readLine("2.\n" + "Enter command: ");
-        while (!value.equals("exit")) {
-            switch (value) {
+        String signOfExecutingCommand = readLine("2.\n" + "Enter command: ");
+        while (!signOfExecutingCommand.equals("exit")) {
+            switch (signOfExecutingCommand) {
                 case "+":
-                    String dateCal1 = readLine("Enter sours date: ");
-                    int number1 = Integer.parseInt(readLine("Enter number: "));
-                    String dateValue1 = readLine("Enter \"day\" or \"month\" or \"year\" : ");
-                    firsCommandOfAdding(form, form1, form2, number1, dateCal1, dateValue1);
+                    String sourceDate1 = readLine("Enter sours date: ");
+                    int number1OfTimePeriod = Integer.parseInt(readLine("Enter number of time period: "));
+                    String name1OfTimePeriod = readLine("Enter \"day\" or \"month\" or \"year\" : ");
+                    firsCommandOfAdding(form, form1, form2, number1OfTimePeriod, sourceDate1, name1OfTimePeriod);
                     break;
                 case "-":
-                    String dateCal2 = readLine("Enter sours date: ");
-                    int number2 = Integer.parseInt(readLine("Enter number: "));
-                    String dateValue2 = readLine("Enter \"day\" or \"month\" or \"year\" : ");
-                    secondCommandOfSubtract(form, form1, form2, number2, dateCal2, dateValue2);
+                    String sourceDate2 = readLine("Enter sours date: ");
+                    int number2OfTimePeriod = Integer.parseInt(readLine("Enter number: "));
+                    String name2OfTimePeriod = readLine("Enter \"day\" or \"month\" or \"year\" : ");
+                    secondCommandOfSubtract(form, form1, form2, number2OfTimePeriod, sourceDate2, name2OfTimePeriod);
                     break;
                 default:
                     System.out.println("Oooops, something wrong!");
             }
-            value = readLine("Enter command: ");
+            signOfExecutingCommand = readLine("Enter command: ");
         }
     }
 
@@ -42,22 +42,23 @@ public class Main {
         if (comparisonOfDate == 1) {
             System.out.println("Date" + form1.formatDateByATemplate(dateFirstForComparison) + " more then date " + form1.formatDateByATemplate(dateSecondForComparison));
         } else if (comparisonOfDate == -1) {
-            System.out.println("Date" + form1.formatDateByATemplate(dateFirstForComparison) + " less then date" + form1.formatDateByATemplate(dateSecondForComparison));
+            System.out.println("Date " + form1.formatDateByATemplate(dateFirstForComparison) + " less then date " + form1.formatDateByATemplate(dateSecondForComparison));
         } else {
             System.out.println("The numbers are equal");
         }
     }
 
-    public static void firsCommandOfAdding(DateFormat form, DateFormat form2, DateFormat form3, int number, String dateCal1, String dateValue1) {
-        Date date = DateFormat.parseADateFromAString(dateCal1);
-        date.addingNAmountOfTime(number, dateValue1);
+    public static void firsCommandOfAdding(DateFormat form, DateFormat form2, DateFormat form3, int number1OfTimePeriod, String sourceDate1, String name1OfTimePeriod) {
+        Date date = DateFormat.parseADateFromAString(sourceDate1);
+        date.addingNAmountOfTime(number1OfTimePeriod, name1OfTimePeriod);
         System.out.println(form.formatDateByATemplate(date));
         printResultOfFormat(form, form2, form3, date);
     }
 
-    public static void secondCommandOfSubtract(DateFormat form, DateFormat form2, DateFormat form3, int number, String dateCal2, String dateValue2) {
-        Date date = DateFormat.parseADateFromAString(dateCal2);
-        date.subtractNAmountOfTime(number, dateValue2);
+
+    public static void secondCommandOfSubtract(DateFormat form, DateFormat form2, DateFormat form3, int number2OfTimePeriod, String sourceDate2, String name2OfTimePeriod) {
+        Date date = DateFormat.parseADateFromAString(sourceDate2);
+        date.subtractNAmountOfTime(number2OfTimePeriod, name2OfTimePeriod);
         System.out.println(form.formatDateByATemplate(date));
         printResultOfFormat(form, form2, form3, date);
     }

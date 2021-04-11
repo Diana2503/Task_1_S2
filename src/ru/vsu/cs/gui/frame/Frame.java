@@ -5,7 +5,7 @@ import ru.vsu.cs.gui.controller.Button2ResultListener;
 
 import javax.swing.*;
 
-public class Frame extends JFrame{
+public class Frame extends JFrame {
     private JPanel mainPanel;
     private JTextField enterDate;
     private JTextField enterTheActionSign;
