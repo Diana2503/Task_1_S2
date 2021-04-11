@@ -1,7 +1,7 @@
 package ru.vsu.cs.gui.frame;
 
-import ru.vsu.cs.gui.controller.Button1ResultListener;
-import ru.vsu.cs.gui.controller.Button2ResultListener;
+import ru.vsu.cs.gui.controller.ButtonResultChangeDateListener;
+import ru.vsu.cs.gui.controller.ButtonResultCompareDatesListener;
 
 import javax.swing.*;
 
@@ -28,7 +28,7 @@ public class Frame extends JFrame {
         pack();
         setBounds(400, 300, 950, 300);
 
-        performAnActionButton.addActionListener(new Button1ResultListener(enterDate, enterTheActionSign, enterValue, convertedDate, enterTimePeriod));
-        compareOfDatesButton.addActionListener(new Button2ResultListener(enterTheFirstDateForComparison, enterTheSecondDateForComparison, comparisonResult));
+        performAnActionButton.addActionListener(new ButtonResultChangeDateListener(enterDate, enterTheActionSign, enterValue, convertedDate, enterTimePeriod));
+        compareOfDatesButton.addActionListener(new ButtonResultCompareDatesListener(enterTheFirstDateForComparison, enterTheSecondDateForComparison, comparisonResult));
     }
 }

@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Button1ResultListener implements ActionListener {
+public class ButtonResultChangeDateListener implements ActionListener {
     JTextField enterDate;
     JTextField enterTheActionSign;
     JTextField enterValue;
@@ -15,7 +15,7 @@ public class Button1ResultListener implements ActionListener {
     JTextField enterTimePeriod;
     DateFormat form1 = new DateFormat("'dd'.'MM'.'yyyy'");
 
-    public Button1ResultListener(JTextField enterDate, JTextField enterTheActionSign, JTextField enterValue, JTextField convertedDate, JTextField enterTimePeriod) {
+    public ButtonResultChangeDateListener(JTextField enterDate, JTextField enterTheActionSign, JTextField enterValue, JTextField convertedDate, JTextField enterTimePeriod) {
         this.enterDate = enterDate;
         this.enterTheActionSign = enterTheActionSign;
         this.enterValue = enterValue;

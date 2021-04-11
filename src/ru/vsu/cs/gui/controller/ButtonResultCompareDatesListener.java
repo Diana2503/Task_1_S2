@@ -7,13 +7,13 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Button2ResultListener implements ActionListener {
+public class ButtonResultCompareDatesListener implements ActionListener {
     JTextField enterTheFirstDateForComparison;
     JTextField enterTheSecondDateForComparison;
     JTextField comparisonResult;
     DateFormat form1 = new DateFormat("'dd'.'MM'.'yyyy'");
 
-    public Button2ResultListener(JTextField enterTheFirstDateForComparison, JTextField enterTheSecondDateForComparison, JTextField comparisonResult) {
+    public ButtonResultCompareDatesListener(JTextField enterTheFirstDateForComparison, JTextField enterTheSecondDateForComparison, JTextField comparisonResult) {
         this.enterTheFirstDateForComparison = enterTheFirstDateForComparison;
         this.enterTheSecondDateForComparison = enterTheSecondDateForComparison;
         this.comparisonResult = comparisonResult;
